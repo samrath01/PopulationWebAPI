@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h1 class="display-4 font-weight-bolder">All Population Details</h1>
+</div>
+<hr />
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Population</th>
+                <th>Growth Rate</th>
+                <th>Area</th>
+            </tr>
+        </thead>
+        <tbody id="table_population">
+            <tr>
+                <td colspan="4" align="center">No Population information</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            displayAllPopulations(false);
+        });
+    </script>
+}

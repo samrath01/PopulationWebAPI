@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Operations";
+}
+
+<div class="text-center">
+    <h1 class="display-4 font-weight-bolder">All Population Details</h1>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#add_edit_dialog">New Population Entry</button>
+</div>
+<hr />
+<hr />
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Population</th>
+                <th>Growth Rate</th>
+                <th>Area</th>
+                <th colspan="2">Operations</th>
+            </tr>
+        </thead>
+        <tbody id="table_population">
+            <tr>
+                <td colspan="6" align="center">No Population information</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Add/Edit Employee Modal Dialog Box -->
+<div class="modal" tabindex="-1" role="dialog" id="add_edit_dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="model_title">Add Population Details</h5>
+                <button type="button" onclick="resetForm()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="country">Enter Country: </label>
+                        <input type="text" class="form-control" id="country">
+                        <input type="hidden" id="population_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="population">Enter Population: </label>
+                        <input type="number" class="form-control" id="population">
+                    </div>
+                    <div class="form-group">
+                        <label for="growth_rate">Enter Growth Rate: </label>
+                        <input type="number" class="form-control" id="growth_rate" step="any">
+                    </div>
+                    <div class="form-group">
+                        <label for="area">Enter Area: </label>
+                        <input type="number" class="form-control" id="area">
+                    </div>
+                    <div class="form-group" id="output">
+
+                    </div>
+                    <button type="button" onclick="savePopulation()" class="btn btn-primary">Save Population Details</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="resetForm()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/site.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            displayAllPopulations(true);
+        });
+    </script>
+}
